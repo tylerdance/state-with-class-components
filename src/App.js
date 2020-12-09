@@ -14,8 +14,18 @@ class App extends Component {
   }
 
   increment = () =>  {
-    const currentCount = this.state.count
-    const newCount = currentCount + 1
+
+    const amountToAdd = prompt('How much do you want to add?')
+    // const currentCount = this.state.count
+    const newCount = this.state.count + parseInt(amountToAdd)
+
+    this.setState({ count: newCount })
+  }
+
+  decrement = () => {
+    const amountToSubtract = prompt('How much do you want to subtract?')
+    // const currentCount = this.state.count
+    const newCount = this.state.count - parseInt(amountToSubtract)
 
     this.setState({ count: newCount })
   }
@@ -25,6 +35,7 @@ class App extends Component {
       <div>
         <h1>{this.state.count}</h1>
         <button onClick={this.increment}>+</button>
+        <button onClick={this.decrement}>-</button>
       </div>
     )
   }
